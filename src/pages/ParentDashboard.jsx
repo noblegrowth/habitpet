@@ -6,13 +6,15 @@ import { useFamily } from "../context/FamilyContext.jsx";
 import { useNav } from "../context/NavigationContext.jsx";
 import { getPersonalPet, getFamilyPet as lookupFamilyPet } from "../data/pets.js";
 import { levelForXp } from "../utils/xp.js";
+import { pendingApprovals } from "../utils/tasks.js";
 import ScreenHeader from "../components/shared/ScreenHeader.jsx";
 import Button from "../components/shared/Button.jsx";
 
 export default function ParentDashboard() {
-  const { family, familyPet, children } = useFamily();
+  const { family, familyPet, children, approveCompletion, rejectCompletion } = useFamily();
   const { goBack, navigate } = useNav();
   const familyDef = lookupFamilyPet(familyPet?.petType);
+  const queue = pendingApprovals(family?.id);
 
   return (
     <div className="min-h-screen bg-cream">
@@ -42,6 +44,56 @@ export default function ParentDashboard() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* approval queue */}
+        <section className="rounded-4xl felt-surface p-5">
+          <h2 className="font-display text-lg font-extrabold text-ink/70">
+            Approvals {queue.length > 0 && (
+              <span className="ml-1 rounded-full bg-coral-deep px-2 py-0.5 text-sm text-white">
+                {queue.length}
+              </span>
+            )}
+          </h2>
+          {queue.length === 0 ? (
+            <p className="mt-2 text-sm text-ink/50">Nothing waiting — all caught up. 🎉</p>
+          ) : (
+            <div className="mt-3 space-y-2">
+              {queue.map(({ completion, task, child }) => (
+                <div
+                  key={completion.id}
+                  className="flex items-center gap-3 rounded-3xl bg-white/70 p-3"
+                >
+                  <span className="text-2xl">{task?.icon ?? "⭐"}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className="truncate font-display font-bold text-ink">
+                      {task?.title ?? "Task"}
+                    </div>
+                    <div className="text-xs text-ink/50">
+                      {child?.name} · +{completion.xpAwarded} XP
+                      {task?.isKidInitiated ? " · 🚀 kid goal" : ""}
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => rejectCompletion(completion.id)}
+                    aria-label="Reject"
+                    className="tap-target flex h-11 w-11 items-center justify-center rounded-full bg-ink/10 text-xl text-ink/60 transition active:scale-90"
+                  >
+                    ✕
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => approveCompletion(completion.id)}
+                    aria-label="Approve"
+                    className="tap-target flex h-11 w-11 items-center justify-center rounded-full bg-grass-deep text-xl text-white transition active:scale-90"
+                  >
+                    ✓
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* kids */}

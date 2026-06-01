@@ -8,6 +8,7 @@
  */
 import { createContext, useContext, useState, useCallback, useMemo } from "react";
 import * as store from "../utils/storage.js";
+import * as engine from "../utils/tasks.js";
 import { seedChildTasks } from "../utils/tasks.js";
 
 const FamilyContext = createContext(null);
@@ -70,6 +71,34 @@ export function FamilyProvider({ children }) {
         return res;
       },
       verifyChildPin: store.verifyChildPin,
+
+      // ── Task engine (each wraps an engine call + refresh) ──
+      completeTask(args) {
+        const res = engine.completeTask(args);
+        refresh();
+        return res;
+      },
+      undoTask(args) {
+        const res = engine.undoTask(args);
+        refresh();
+        return res;
+      },
+      addKidGoal(childId, attrs) {
+        const goal = engine.createKidGoal(childId, attrs);
+        refresh();
+        return goal;
+      },
+      approveCompletion(id) {
+        const res = engine.approveCompletion(id);
+        refresh();
+        return res;
+      },
+      rejectCompletion(id) {
+        const res = engine.rejectCompletion(id);
+        refresh();
+        return res;
+      },
+
       reset() {
         store.resetData();
         refresh();
