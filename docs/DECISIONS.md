@@ -21,3 +21,17 @@ Newest at top.
   template `defaultXP[ageBracket]`. Custom/kid tasks use stored `xpValue`.
 - **Finished felted skin** by sweeping remaining bright-white surfaces to the
   `.felt-surface` utility / warm tokens for cohesion (visual-skin scope).
+- **XP awarded immediately on check-off**, even for approval-required tasks;
+  parent approval just confirms (reject = undo + XP reversed). Rationale:
+  kid-positive, grace-first; avoids a kid checking something off and seeing no
+  reward while waiting on a grown-up.
+- **Weekly / as-needed tasks shown under "Anytime & Extras"**, not in the daily
+  completion ring. Only daily + weekday ("core") tasks count toward today's
+  completion % and the derived mood. Rationale: avoids inflating/penalizing the
+  daily ring with non-daily items.
+- **Pet mood is derived live** from today's core completion % (not stored/
+  overwritten). Reflective, never punitive.
+- **Voice goal intake stubbed**, typed intake shipped — voice belongs with the
+  AI coach (Phase 3). Logged in BLOCKED.md.
+- **Undo reverses XP** (including family-pet XP) but never drops a level below
+  what the remaining XP supports; progress from other tasks is untouched.

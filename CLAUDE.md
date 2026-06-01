@@ -61,7 +61,7 @@ Model: claude-sonnet-4-20250514. Age-aware, values-embedded, in-character as the
 
 ## Phase Status
 - [x] Phase 1: Scaffold + profile system + pet selection + home screen
-- [ ] Phase 2: Task engine + check-in windows + XP + streaks
+- [x] Phase 2: Task engine + check-in windows + XP + streaks
 - [ ] Phase 3: AI pet coach integration
 - [ ] Phase 4: Gamification + animations + badge system
 - [ ] Phase 5: Parent dashboard
