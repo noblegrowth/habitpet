@@ -38,7 +38,7 @@ export default function FamilySetup() {
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-5 py-10">
         {step === 0 && (
           <div className="animate-pop-in text-center">
-            <PetAvatar icon="🦅" color="#FDE68A" size="xl" animate="float" />
+            <PetAvatar icon="🦅" color="#CFA23F" size="xl" animate="idle" />
             <h1 className="mt-6 font-display text-4xl font-extrabold text-ink sm:text-5xl">
               Welcome to HabitPet!
             </h1>
@@ -64,7 +64,7 @@ export default function FamilySetup() {
               onChange={(e) => setFamilyName(e.target.value)}
               placeholder="The Gallo Family"
               maxLength={40}
-              className="mt-6 w-full rounded-4xl border-4 border-white bg-white/80 px-6 py-4 text-center font-display text-2xl font-bold text-ink shadow-soft outline-none focus:border-sky-deep"
+              className="mt-6 w-full rounded-4xl border-4 border-paper bg-cream px-6 py-4 text-center font-display text-2xl font-bold text-ink shadow-soft outline-none focus:border-coral-deep"
             />
             <div className="mt-8 flex justify-center gap-3">
               <Button variant="ghost" onClick={() => setStep(0)}>
@@ -99,7 +99,7 @@ export default function FamilySetup() {
             </div>
 
             {pet && (
-              <div className="mt-6 rounded-4xl bg-white/80 p-5 text-center shadow-soft backdrop-blur">
+              <div className="mt-6 rounded-4xl felt-surface p-5 text-center">
                 <p className="font-display font-bold text-ink/70">
                   Name your {pet.name}
                 </p>
@@ -108,7 +108,7 @@ export default function FamilySetup() {
                   onChange={(e) => setPetName(e.target.value)}
                   placeholder={pet.defaultName}
                   maxLength={20}
-                  className="mt-2 w-full max-w-xs rounded-3xl border-4 border-white bg-cream px-5 py-3 text-center font-display text-xl font-bold text-ink shadow-soft outline-none focus:border-sky-deep"
+                  className="mt-2 w-full max-w-xs rounded-3xl border-4 border-paper bg-cream px-5 py-3 text-center font-display text-xl font-bold text-ink shadow-soft outline-none focus:border-coral-deep"
                 />
               </div>
             )}
@@ -125,7 +125,7 @@ export default function FamilySetup() {
         )}
 
         {step === 3 && (
-          <div className="w-full max-w-md animate-fade-up rounded-5xl bg-white/70 p-6 shadow-soft backdrop-blur">
+          <div className="w-full max-w-md animate-fade-up rounded-5xl felt-surface p-6">
             <PinPad
               title="Set a Parent PIN"
               subtitle="Grown-ups use this to reach the parent dashboard."

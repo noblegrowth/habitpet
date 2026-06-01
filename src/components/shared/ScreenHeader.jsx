@@ -13,7 +13,7 @@ export default function ScreenHeader({ title, subtitle, right = null, onBack }) 
         type="button"
         onClick={handleBack}
         aria-label="Go back"
-        className="tap-target flex h-12 w-12 items-center justify-center rounded-full bg-white text-2xl text-ink shadow-soft transition active:scale-90"
+        className="tap-target flex h-12 w-12 items-center justify-center rounded-full felt-surface text-2xl text-ink transition active:scale-90"
       >
         ←
       </button>

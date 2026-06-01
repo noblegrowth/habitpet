@@ -26,7 +26,7 @@ export default function ParentGate() {
     <WorldScene tone="dusk" className="min-h-screen">
       <ScreenHeader title="Grown-ups only" onBack={goBack} />
       <div className="mx-auto flex max-w-md flex-col items-center px-5 pt-6">
-        <div className="w-full rounded-5xl bg-white/70 p-6 shadow-soft backdrop-blur">
+        <div className="w-full rounded-5xl felt-surface p-6">
           <PinPad
             title="Enter Parent PIN"
             subtitle="The dashboard is just for grown-ups."

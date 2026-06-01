@@ -29,7 +29,7 @@ export default function ParentDashboard() {
 
       <div className="mx-auto max-w-3xl space-y-6 px-5 pb-16">
         {/* family pet */}
-        <section className="rounded-4xl bg-white p-5 shadow-soft">
+        <section className="rounded-4xl felt-surface p-5">
           <h2 className="font-display text-lg font-extrabold text-ink/70">Family Pet</h2>
           <div className="mt-2 flex items-center gap-4">
             <span className="text-5xl">{familyDef?.icon ?? "🐾"}</span>
@@ -45,7 +45,7 @@ export default function ParentDashboard() {
         </section>
 
         {/* kids */}
-        <section className="rounded-4xl bg-white p-5 shadow-soft">
+        <section className="rounded-4xl felt-surface p-5">
           <h2 className="font-display text-lg font-extrabold text-ink/70">
             Children ({children.length})
           </h2>

@@ -60,7 +60,7 @@ export default function ChildOnboarding() {
               onChange={(e) => setName(e.target.value)}
               placeholder="Type your name"
               maxLength={24}
-              className="mt-6 w-full rounded-4xl border-4 border-white bg-cream px-6 py-4 text-center font-display text-2xl font-bold text-ink shadow-soft outline-none focus:border-sky-deep"
+              className="mt-6 w-full rounded-4xl border-4 border-paper bg-cream px-6 py-4 text-center font-display text-2xl font-bold text-ink shadow-soft outline-none focus:border-coral-deep"
             />
             <p className="mt-6 font-display font-bold text-ink/60">Pick your color</p>
             <div className="mt-3 flex flex-wrap justify-center gap-3">
@@ -94,8 +94,8 @@ export default function ChildOnboarding() {
                   type="button"
                   onClick={() => setAgeBracket(a.id)}
                   aria-pressed={ageBracket === a.id}
-                  className={`tap-target flex items-center gap-4 rounded-4xl border-4 bg-white p-4 text-left transition active:scale-95 ${
-                    ageBracket === a.id ? "border-sky-deep shadow-glow" : "border-transparent shadow-soft"
+                  className={`tap-target flex items-center gap-4 rounded-4xl border-4 felt-surface p-4 text-left transition active:scale-95 ${
+                    ageBracket === a.id ? "border-coral-deep shadow-glow" : "border-transparent"
                   }`}
                 >
                   <span className="text-4xl">{a.emoji}</span>
@@ -148,7 +148,7 @@ export default function ChildOnboarding() {
               onChange={(e) => setPetName(e.target.value)}
               placeholder={pet?.defaultName}
               maxLength={20}
-              className="mt-6 w-full rounded-4xl border-4 border-white bg-cream px-6 py-4 text-center font-display text-2xl font-bold text-ink shadow-soft outline-none focus:border-sky-deep"
+              className="mt-6 w-full rounded-4xl border-4 border-paper bg-cream px-6 py-4 text-center font-display text-2xl font-bold text-ink shadow-soft outline-none focus:border-coral-deep"
             />
             <NavRow onBack={back} onNext={next} nextLabel="Almost done →" />
           </Card>
@@ -179,7 +179,7 @@ export default function ChildOnboarding() {
 
 function Card({ children }) {
   return (
-    <div className="mt-4 flex w-full max-w-md animate-fade-up flex-col items-center rounded-5xl bg-white/70 p-6 text-center shadow-soft backdrop-blur">
+    <div className="mt-4 flex w-full max-w-md animate-fade-up flex-col items-center rounded-5xl felt-surface p-6 text-center">
       {children}
     </div>
   );

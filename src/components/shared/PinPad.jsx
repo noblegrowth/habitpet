@@ -84,7 +84,7 @@ function KeypadButton({ children, ...props }) {
   return (
     <button
       type="button"
-      className="tap-target flex h-16 w-16 items-center justify-center rounded-3xl bg-white font-display text-2xl font-bold text-ink shadow-soft transition active:scale-90 active:bg-sky-soft/50 sm:h-20 sm:w-20"
+      className="tap-target flex h-16 w-16 items-center justify-center rounded-3xl felt-surface font-display text-2xl font-bold text-ink transition active:scale-90 active:bg-coral-soft/50 sm:h-20 sm:w-20"
       {...props}
     >
       {children}

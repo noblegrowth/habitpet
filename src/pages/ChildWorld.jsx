@@ -38,13 +38,14 @@ export default function ChildWorld({ childId }) {
       <div className="mx-auto flex max-w-2xl flex-col items-center px-5 pb-16 text-center">
         <div className="relative mt-4">
           <PetAvatar
+            petId={child.pet?.petType}
             icon={def?.icon ?? "🐾"}
             color={child.avatarColor}
             size="xl"
-            animate="float"
-            ring
+            pose="active"
+            animate="idle"
           />
-          <div className="absolute -right-2 top-2 rounded-full bg-white px-2 py-1 text-2xl shadow-soft">
+          <div className="absolute -right-1 top-1 rounded-full felt-surface px-2 py-1 text-2xl">
             {mood.face}
           </div>
         </div>
@@ -56,7 +57,7 @@ export default function ChildWorld({ childId }) {
           “Hi {child.name}! I'm so happy you're here. {def?.personality ?? ""}”
         </p>
 
-        <div className="mt-6 w-full max-w-sm rounded-4xl bg-white/80 p-5 shadow-soft backdrop-blur">
+        <div className="mt-6 w-full max-w-sm rounded-4xl felt-surface p-5">
           <XPBar xp={child.pet?.xp ?? 0} color={child.avatarColor} label={`Level ${level}`} />
         </div>
 

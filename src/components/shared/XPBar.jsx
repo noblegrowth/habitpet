@@ -1,10 +1,10 @@
 /**
- * XPBar — a chunky, glossy progress bar showing level + progress to next level.
- * Used for both the Family Pet (collective XP) and personal pets.
+ * XPBar — a matte felt progress groove showing level + progress to next level.
+ * Soft inset "stitched" track, flat wool fill, warm top-light. No gloss.
  */
 import { levelProgress } from "../../utils/xp.js";
 
-export default function XPBar({ xp = 0, color = "#7DD3FC", label, compact = false }) {
+export default function XPBar({ xp = 0, color = "#C27457", label, compact = false }) {
   const { level, into, span, pct, isMax } = levelProgress(xp);
 
   return (
@@ -21,6 +21,7 @@ export default function XPBar({ xp = 0, color = "#7DD3FC", label, compact = fals
       </div>
       <div
         className="relative h-4 w-full overflow-hidden rounded-full bg-ink/10"
+        style={{ boxShadow: "inset 0 2px 4px rgba(74,64,54,0.22)" }}
         role="progressbar"
         aria-valuenow={pct}
         aria-valuemin={0}
@@ -30,16 +31,10 @@ export default function XPBar({ xp = 0, color = "#7DD3FC", label, compact = fals
           className="h-full rounded-full transition-[width] duration-700 ease-out"
           style={{
             width: `${Math.max(pct, isMax ? 100 : 6)}%`,
-            background: `linear-gradient(90deg, ${color}, ${color}cc)`,
-          }}
-        />
-        {/* glossy shimmer */}
-        <div
-          className="pointer-events-none absolute inset-0 animate-shimmer rounded-full opacity-40"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.7) 50%, transparent 100%)",
-            backgroundSize: "200% 100%",
+            backgroundColor: color,
+            // soft top-light + bottom occlusion so the fill looks like packed wool
+            boxShadow:
+              "inset 0 3px 5px rgba(255,255,255,0.30), inset 0 -3px 5px rgba(74,64,54,0.20)",
           }}
         />
       </div>

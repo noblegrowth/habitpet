@@ -7,7 +7,7 @@ const VARIANTS = {
   grass: "bg-grass-deep text-white shadow-soft hover:brightness-105",
   golden: "bg-golden-deep text-ink shadow-soft hover:brightness-105",
   coral: "bg-coral-deep text-white shadow-soft hover:brightness-105",
-  soft: "bg-white text-ink shadow-soft hover:bg-sky-soft/40",
+  soft: "felt-surface text-ink hover:bg-coral-soft/30",
   ghost: "bg-transparent text-ink/70 hover:bg-ink/5",
 };
 

@@ -1,57 +1,54 @@
 /**
- * WorldScene — the animated living-world backdrop.
- * Layered sky gradient, sun, drifting clouds, and rolling hills. Children
- * render on top. `tone` shifts the palette so each space feels distinct.
+ * WorldScene — the felted-diorama backdrop (see docs/DESIGN_SYSTEM.md).
+ * A clean, slightly textured off-white seamless-paper sweep with soft studio
+ * key light and a gentle cloth seam at the floor. Keeps the subject the focus.
  */
 const TONES = {
-  day: "from-sky-soft via-sky-soft/60 to-grass-soft",
-  dusk: "from-grape-soft via-coral-soft/50 to-golden-soft",
-  meadow: "from-sky-soft via-white to-grass-soft",
+  day: "#F7F1E6",
+  dusk: "#F1E5DA",
+  meadow: "#F4EEDF",
 };
 
+// Subtle paper grain (fractal noise) so the backdrop reads as cloth, not flat CSS.
+const GRAIN =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+
 export default function WorldScene({ tone = "day", children, className = "" }) {
+  const bg = TONES[tone] ?? TONES.day;
+
   return (
     <div
-      className={`relative min-h-full w-full overflow-hidden bg-gradient-to-b ${
-        TONES[tone] ?? TONES.day
-      } ${className}`}
+      className={`relative min-h-full w-full overflow-hidden ${className}`}
+      style={{ backgroundColor: bg }}
     >
-      {/* sun */}
-      <div className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-golden/80 blur-[2px] sm:h-56 sm:w-56" />
-      <div className="pointer-events-none absolute right-6 top-6 h-28 w-28 rounded-full bg-golden-deep/70 sm:h-36 sm:w-36" />
-
-      {/* drifting clouds */}
-      <Cloud className="top-16 animate-drift-slow text-white/90" />
-      <Cloud className="top-40 animate-drift-slower text-white/70" big />
-
-      {/* rolling hills */}
-      <svg
-        className="pointer-events-none absolute bottom-0 left-0 w-full"
-        viewBox="0 0 1440 220"
-        preserveAspectRatio="none"
-        aria-hidden
-      >
-        <path
-          fill="#86EFAC"
-          fillOpacity="0.7"
-          d="M0,160 C240,90 480,90 720,140 C960,190 1200,150 1440,110 L1440,220 L0,220 Z"
-        />
-        <path
-          fill="#4ADE80"
-          fillOpacity="0.8"
-          d="M0,190 C300,140 600,200 900,180 C1140,165 1320,200 1440,180 L1440,220 L0,220 Z"
-        />
-      </svg>
+      {/* soft studio key light, upper-left */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(120% 85% at 22% -5%, rgba(255,255,255,0.7), transparent 60%)",
+        }}
+      />
+      {/* paper / cloth grain */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-multiply"
+        style={{ backgroundImage: GRAIN, backgroundSize: "140px 140px" }}
+      />
+      {/* gentle floor seam + vignette for depth */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5"
+        style={{
+          background: "linear-gradient(to top, rgba(74,64,54,0.08), transparent)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          boxShadow: "inset 0 0 120px rgba(74,64,54,0.10)",
+        }}
+      />
 
       <div className="relative z-10">{children}</div>
-    </div>
-  );
-}
-
-function Cloud({ className = "", big = false }) {
-  return (
-    <div className={`pointer-events-none absolute left-0 ${className}`} aria-hidden>
-      <span className={big ? "text-7xl" : "text-5xl"}>☁️</span>
     </div>
   );
 }

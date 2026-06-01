@@ -44,14 +44,14 @@ export default function HomeScreen() {
     <WorldScene tone="day" className="min-h-screen">
       {/* top bar */}
       <div className="flex items-start justify-between px-5 pt-5 sm:px-8">
-        <div className="rounded-full bg-white/70 px-4 py-2 font-display font-extrabold text-ink shadow-soft backdrop-blur">
+        <div className="rounded-full felt-surface px-4 py-2 font-display font-extrabold text-ink">
           {family?.name ?? "Our Family"}
         </div>
         <button
           type="button"
           onClick={() => navigate("parentGate")}
           aria-label="Parent dashboard"
-          className="tap-target flex h-12 w-12 items-center justify-center rounded-full bg-white text-2xl shadow-soft transition active:scale-90"
+          className="tap-target flex h-12 w-12 items-center justify-center rounded-full felt-surface text-2xl transition active:scale-90"
         >
           🔒
         </button>
@@ -95,17 +95,19 @@ function ChildTile({ child, onEnter }) {
     <button
       type="button"
       onClick={() => onEnter(child)}
-      className="tap-target group flex flex-col items-center gap-2 rounded-4xl border-4 border-white bg-white/80 p-4 shadow-soft backdrop-blur transition active:scale-95 hover:border-sky-soft"
+      className="tap-target group flex flex-col items-center gap-2 rounded-4xl border-4 border-transparent felt-surface p-4 transition active:scale-95 hover:border-coral-soft"
     >
       <div className="relative">
         <PetAvatar
+          petId={child.pet?.petType}
           icon={def?.icon ?? "🐾"}
           color={child.avatarColor}
           size="md"
-          animate="bob"
+          pose="face"
+          animate="idle"
         />
         {child.pin && (
-          <span className="absolute -right-1 -top-1 rounded-full bg-white px-1.5 text-sm shadow" aria-label="Locked">
+          <span className="absolute -right-1 -top-1 rounded-full felt-surface px-1.5 text-sm" aria-label="Locked">
             🔒
           </span>
         )}
