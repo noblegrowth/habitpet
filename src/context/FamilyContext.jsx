@@ -8,6 +8,7 @@
  */
 import { createContext, useContext, useState, useCallback, useMemo } from "react";
 import * as store from "../utils/storage.js";
+import { seedChildTasks } from "../utils/tasks.js";
 
 const FamilyContext = createContext(null);
 
@@ -52,6 +53,7 @@ export function FamilyProvider({ children }) {
       /** Add a child + their personal pet. Returns the child record. */
       addChild(childAttrs, petAttrs) {
         const { child } = store.createChildWithPet(childAttrs, petAttrs);
+        seedChildTasks(child.id, child.ageBracket); // starter daily habits
         refresh();
         return child;
       },
