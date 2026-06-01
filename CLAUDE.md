@@ -60,7 +60,7 @@ All prompt building via /src/ai/habitpet-ai-prompt.js — do not write inline pr
 Model: claude-sonnet-4-20250514. Age-aware, values-embedded, in-character as the pet.
 
 ## Phase Status
-- [ ] Phase 1: Scaffold + profile system + pet selection + home screen
+- [x] Phase 1: Scaffold + profile system + pet selection + home screen
 - [ ] Phase 2: Task engine + check-in windows + XP + streaks
 - [ ] Phase 3: AI pet coach integration
 - [ ] Phase 4: Gamification + animations + badge system
