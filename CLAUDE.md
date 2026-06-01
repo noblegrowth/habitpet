@@ -10,7 +10,7 @@ Built for a Samsung Galaxy Tab as a home touchpoint for the whole family.
 ## Stack
 - React + Vite (frontend framework)
 - Tailwind CSS (styling)
-- Anthropic API via claude-sonnet-4-20250514 (AI pet coach)
+- Anthropic API via claude-sonnet-4-6 (AI pet coach)
 - localStorage (Phase 1 data layer)
 - Supabase (Phase 6 migration — schema already written)
 - Vercel (hosting + preview deploys)
@@ -57,7 +57,7 @@ ENV vars for Supabase are already stubbed in .env.local.
 ## AI Integration (Phase 3)
 Anthropic API key in VITE_ANTHROPIC_API_KEY env var.
 All prompt building via /src/ai/habitpet-ai-prompt.js — do not write inline prompts.
-Model: claude-sonnet-4-20250514. Age-aware, values-embedded, in-character as the pet.
+Model: claude-sonnet-4-6. Age-aware, values-embedded, in-character as the pet.
 
 ## Phase Status
 - [x] Phase 1: Scaffold + profile system + pet selection + home screen

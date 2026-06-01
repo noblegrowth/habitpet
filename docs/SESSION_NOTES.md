@@ -28,7 +28,7 @@ pushed. The only thing not started is Phase 3 (blocked) / Phase 4 (optional).
 2. Decide direction:
    - **To do Phase 3 (AI coach):** set `VITE_ANTHROPIC_API_KEY` in `.env.local`
      (currently empty — hard blocker), then build the chat UI + wire
-     `src/ai/habitpet-ai-prompt.js`. Model per CLAUDE.md: `claude-sonnet-4-20250514`.
+     `src/ai/habitpet-ai-prompt.js`. Model per CLAUDE.md: `claude-sonnet-4-6`.
    - **To do Phase 4 (gamification, unblocked):** start with the **badge system**
      — `STREAK_THRESHOLDS` / `DEFAULT_XP_THRESHOLDS` already exist in
      `src/data/habitpet-task-templates.js`; award `badges` records in
